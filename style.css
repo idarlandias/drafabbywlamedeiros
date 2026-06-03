@@ -3,18 +3,18 @@
    ========================================================================== */
 :root {
     /* Color Palette */
-    --bg-primary: #FAF9F6;      /* Off-White - rgb(250, 249, 246) */
-    --bg-secondary: #F4F2EB;    /* Contraste Claro secundário */
-    --text-dark: #122B25;       /* Verde Escuro - rgb(18, 43, 37) */
-    --text-muted: #495E57;      /* Muted Greenish Gray */
+    --bg-primary: #FCFAF6;      /* Pearl Alabaster */
+    --bg-secondary: #F3EFE6;    /* Limestone Beige */
+    --text-dark: #0A261E;       /* Deep Emerald - rgb(10, 38, 30) */
+    --text-muted: #3A4B45;      /* Forest Gray */
     --text-light: #FFFFFF;      /* Pure White */
     
-    --primary: #122B25;         /* Verde Escuro - rgb(18, 43, 37) */
-    --primary-hover: #0A1B17;   /* Verde Escuro ainda mais fechado */
-    --primary-light: rgba(18, 43, 37, 0.08);
+    --primary: #0A261E;         /* Deep Emerald - rgb(10, 38, 30) */
+    --primary-hover: #051510;   /* Ultra Deep Emerald */
+    --primary-light: rgba(10, 38, 30, 0.08);
     
-    --accent-gold: #D4AF37;     /* Champanhe/Gold - rgb(212, 175, 55) */
-    --accent-gold-hover: #B8952B; /* Ouro envelhecido */
+    --accent-gold: #D4AF37;     /* Gold - rgb(212, 175, 55) */
+    --accent-gold-hover: #B8952B; /* Antique Gold */
     --accent-gold-light: rgba(212, 175, 55, 0.1);
     
     --whatsapp-color: #25D366;
@@ -27,18 +27,18 @@
     --border-radius-full: 9999px;
     
     /* Typography */
-    --font-title: 'Playfair Display', Georgia, serif;
-    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-title: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     
     /* Effects & Shadows */
-    --shadow-sm: 0 4px 6px rgba(18, 43, 37, 0.03);
-    --shadow-md: 0 12px 24px rgba(18, 43, 37, 0.05);
-    --shadow-lg: 0 24px 48px rgba(18, 43, 37, 0.07);
+    --shadow-sm: 0 4px 6px rgba(10, 38, 30, 0.03);
+    --shadow-md: 0 12px 24px rgba(10, 38, 30, 0.05);
+    --shadow-lg: 0 24px 48px rgba(10, 38, 30, 0.07);
     --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
     
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(255, 255, 255, 0.6);
-    --glass-shadow: 0 20px 40px rgba(18, 43, 37, 0.03);
+    --glass-shadow: 0 20px 40px rgba(10, 38, 30, 0.03);
     --glass-blur: blur(12px);
     
     /* Transitions */
@@ -221,7 +221,7 @@ h1, h2, h3, h4 {
     position: fixed;
     background-color: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid rgba(124, 92, 76, 0.08);
+    border-bottom: 1px solid rgba(10, 38, 30, 0.08);
     box-shadow: var(--glass-shadow);
     padding: 12px 0;
 }
@@ -420,7 +420,7 @@ h1, h2, h3, h4 {
    ========================================================================== */
 .stats-bar {
     background-color: var(--bg-secondary);
-    border-bottom: 1px solid rgba(124, 92, 76, 0.05);
+    border-bottom: 1px solid rgba(10, 38, 30, 0.05);
     padding: 30px 0;
 }
 
@@ -554,7 +554,7 @@ h1, h2, h3, h4 {
 .badge {
     background-color: var(--text-light);
     color: var(--primary);
-    border: 1px solid rgba(124, 92, 76, 0.15);
+    border: 1px solid rgba(10, 38, 30, 0.15);
     padding: 8px 16px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -584,7 +584,7 @@ h1, h2, h3, h4 {
     justify-content: center;
     gap: 16px;
     margin-bottom: 48px;
-    border-bottom: 1.5px solid rgba(124, 92, 76, 0.08);
+    border-bottom: 1.5px solid rgba(10, 38, 30, 0.08);
     padding-bottom: 20px;
 }
 
@@ -646,7 +646,7 @@ h1, h2, h3, h4 {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(197, 160, 89, 0.35);
+    border-color: rgba(212, 175, 55, 0.35);
     box-shadow: var(--shadow-lg), var(--shadow-gold);
 }
 
@@ -892,7 +892,7 @@ h1, h2, h3, h4 {
     align-items: center;
     gap: 16px;
     background-color: var(--text-light);
-    border: 1px solid rgba(124, 92, 76, 0.1);
+    border: 1px solid rgba(10, 38, 30, 0.1);
     border-radius: var(--border-radius-md);
     padding: 16px 20px;
     cursor: pointer;
@@ -900,7 +900,7 @@ h1, h2, h3, h4 {
 }
 
 .quiz-option:hover {
-    border-color: rgba(197, 160, 89, 0.4);
+    border-color: rgba(212, 175, 55, 0.4);
     background-color: rgba(255, 255, 255, 0.95);
     transform: translateX(2px);
 }
@@ -938,7 +938,7 @@ h1, h2, h3, h4 {
 .quiz-option:has(input[type="checkbox"]:checked) {
     background-color: var(--accent-gold-light);
     border-color: var(--accent-gold);
-    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
 }
 
 /* Form input styling (Step 3) */
@@ -958,7 +958,7 @@ h1, h2, h3, h4 {
 .form-control {
     width: 100%;
     background-color: var(--text-light);
-    border: 1.5px solid rgba(124, 92, 76, 0.15);
+    border: 1.5px solid rgba(10, 38, 30, 0.15);
     border-radius: var(--border-radius-md);
     padding: 16px 20px;
     font-size: 0.9375rem;
@@ -977,7 +977,7 @@ h1, h2, h3, h4 {
     justify-content: flex-end;
     gap: 12px;
     padding-top: 16px;
-    border-top: 1px solid rgba(124, 92, 76, 0.08);
+    border-top: 1px solid rgba(10, 38, 30, 0.08);
 }
 
 .quiz-footer.vertical {
@@ -1073,7 +1073,7 @@ h1, h2, h3, h4 {
 }
 
 .accordion-item:hover {
-    border-color: rgba(197, 160, 89, 0.25);
+    border-color: rgba(212, 175, 55, 0.25);
 }
 
 .accordion-title {
@@ -1131,7 +1131,7 @@ h1, h2, h3, h4 {
 
 .faq-cta {
     background-color: var(--text-light);
-    border: 1px solid rgba(124, 92, 76, 0.05);
+    border: 1px solid rgba(10, 38, 30, 0.05);
     padding: 32px;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-sm);
@@ -1306,7 +1306,7 @@ h1, h2, h3, h4 {
         width: 280px;
         height: 100vh;
         background-color: var(--bg-primary);
-        border-left: 1px solid rgba(124, 92, 76, 0.08);
+        border-left: 1px solid rgba(10, 38, 30, 0.08);
         box-shadow: var(--shadow-lg);
         padding: 100px 30px;
         transition: var(--transition-smooth);
