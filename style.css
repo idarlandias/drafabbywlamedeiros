@@ -363,7 +363,14 @@ h1, h2, h3, h4 {
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.25);
+    transition: var(--transition-smooth);
+}
+
+.hero-image-wrapper:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
 }
 
 .hero-img {
@@ -1309,7 +1316,7 @@ h1, h2, h3, h4 {
     
     .about-image-wrapper {
         max-width: 350px;
-        margin: 0 auto;
+        margin: 0 auto 40px auto;
     }
     
     /* Services grid scaling */
@@ -1344,11 +1351,12 @@ h1, h2, h3, h4 {
     }
     
     .image-overlay-card {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin: 20px auto 0 auto;
-        max-width: 100%;
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        max-width: 180px;
+        padding: 16px;
+        margin: 0;
         box-shadow: var(--shadow-md);
     }
     

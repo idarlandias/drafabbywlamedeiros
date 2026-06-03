@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('recDesc').textContent = recommendation.desc;
         
         // WhatsApp API text encoding
-        const dddAndPhone = "5511999998888"; // Dra Fabbywla Whatsapp
+        const dddAndPhone = "558897125869"; // Dra Fabbywla Whatsapp
         const introArea = {
             rugas: "Suavizar Rugas e Linhas",
             volume: "Volume e Contorno",
