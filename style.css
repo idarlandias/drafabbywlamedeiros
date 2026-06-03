@@ -1407,6 +1407,19 @@ h1, h2, h3, h4 {
         padding: 160px 0 100px 0;
     }
     
+    .hero-bg {
+        background-position: 35% center;
+    }
+    
+    .image-overlay-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin: 20px auto 0 auto;
+        max-width: 100%;
+        box-shadow: var(--shadow-md);
+    }
+    
     .hero-title {
         font-size: 2.25rem;
     }
