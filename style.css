@@ -243,6 +243,7 @@ h1, h2, h3, h4 {
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--text-dark);
+    transition: var(--transition-fast);
 }
 
 .logo-subtitle {
@@ -251,6 +252,7 @@ h1, h2, h3, h4 {
     letter-spacing: 0.2em;
     color: var(--accent-gold);
     margin-top: -2px;
+    transition: var(--transition-fast);
 }
 
 .nav-menu ul {
@@ -265,6 +267,24 @@ h1, h2, h3, h4 {
     color: var(--text-dark);
     position: relative;
     padding: 8px 0;
+    transition: var(--transition-fast);
+}
+
+/* Header link styles when transparent (over dark green Hero) */
+.main-header:not(.scrolled) .logo-title {
+    color: var(--text-light);
+}
+
+.main-header:not(.scrolled) .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.main-header:not(.scrolled) .nav-link:hover {
+    color: var(--accent-gold);
+}
+
+.main-header:not(.scrolled) .mobile-toggle {
+    color: var(--text-light);
 }
 
 .nav-link::after {
@@ -311,37 +331,50 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   HERO SECTION
+   HERO SECTION (Split-Layout)
    ========================================================================== */
 .hero-section {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 130px;
+    padding-bottom: 60px;
+    background-color: var(--primary);
     overflow: hidden;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center top;
-    z-index: 1;
-    transition: transform 10s ease-out;
 }
 
 .hero-container {
     position: relative;
     z-index: 2;
     width: 100%;
+    display: grid;
+    grid-template-columns: 55% 40%;
+    gap: 5%;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 362 / 517; /* matches img5.png exactly */
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    transition: transform 10s ease-out;
 }
 
 .hero-content {
-    max-width: 650px;
     color: var(--text-light);
 }
 
@@ -479,7 +512,9 @@ h1, h2, h3, h4 {
 .about-image-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 120%;
+    max-width: 380px;
+    margin: 0 auto;
+    aspect-ratio: 337 / 572; /* matches img3.png exactly */
     border-radius: var(--border-radius-lg);
     overflow: visible;
     box-shadow: var(--shadow-lg);
@@ -579,52 +614,6 @@ h1, h2, h3, h4 {
     margin: 0 auto 50px auto;
 }
 
-.services-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 48px;
-    border-bottom: 1.5px solid rgba(10, 38, 30, 0.08);
-    padding-bottom: 20px;
-}
-
-.tab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    border-radius: var(--border-radius-full);
-    transition: var(--transition-smooth);
-    background-color: transparent;
-}
-
-.tab-btn:hover {
-    color: var(--primary);
-}
-
-.tab-btn.active {
-    background-color: var(--text-light);
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
-}
-
-/* Tab contents */
-.tab-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.tab-content.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Services Grid */
 .services-grid {
     display: grid;
@@ -670,74 +659,10 @@ h1, h2, h3, h4 {
     line-height: 1.6;
 }
 
-/* Special Mesoterapia Layout */
-.meso-content-wrapper {
-    display: grid;
-    grid-template-columns: 55% 40%;
-    gap: 5%;
-    align-items: center;
-}
-
-.meso-highlight-card {
-    background-color: var(--primary);
-    color: var(--text-light);
-    padding: 40px;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-md);
-    margin-bottom: 40px;
-}
-
-.meso-highlight-card h3 {
-    font-family: var(--font-title);
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    color: var(--accent-gold);
-}
-
-.meso-highlight-card p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    opacity: 0.9;
-}
-
-.meso-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.meso-image-side {
-    position: relative;
-    width: 100%;
-    padding-bottom: 120%;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-md);
-}
-
-.meso-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center top;
-    border-radius: var(--border-radius-md);
-}
-
-/* Complementares center-grid */
-#complementares .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.comp-card {
-    min-height: 250px;
-}
-
 .services-cta {
     margin-top: 64px;
     text-align: center;
+}
 }
 
 /* ==========================================================================
@@ -1341,8 +1266,31 @@ h1, h2, h3, h4 {
     .mobile-toggle.open .icon-close {
         display: block;
     }
+
+    /* Transparent header links when active menu is open on mobile */
+    .main-header:not(.scrolled) .nav-link {
+        color: var(--text-dark); /* overlay menu uses dark text */
+    }
     
-    /* Hero scaling */
+    /* Hero split column stack */
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .hero-image-wrapper {
+        max-width: 320px;
+    }
+
     .hero-title {
         font-size: 2.75rem;
     }
@@ -1360,7 +1308,7 @@ h1, h2, h3, h4 {
     }
     
     .about-image-wrapper {
-        max-width: 450px;
+        max-width: 350px;
         margin: 0 auto;
     }
     
@@ -1368,18 +1316,6 @@ h1, h2, h3, h4 {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-    }
-    
-    /* Mesoterapia responsive spacing */
-    .meso-content-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .meso-image-side {
-        max-width: 450px;
-        margin: 0 auto;
-        width: 100%;
     }
     
     /* Quiz layout */
@@ -1404,11 +1340,7 @@ h1, h2, h3, h4 {
     /* Hero responsiveness */
     .hero-section {
         min-height: auto;
-        padding: 160px 0 100px 0;
-    }
-    
-    .hero-bg {
-        background-position: 35% top;
+        padding: 140px 0 80px 0;
     }
     
     .image-overlay-card {
@@ -1441,27 +1373,6 @@ h1, h2, h3, h4 {
     /* Services grid */
     .services-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .meso-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    #complementares .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .services-tabs {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    
-    .tab-btn {
-        width: 100%;
-        justify-content: center;
     }
     
     /* Quiz card */

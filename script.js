@@ -1,6 +1,6 @@
 /**
  * DRA. FABBYWLA MEDEIROS - PREMIUM LANDING PAGE JS LOGIC
- * Includes: Nav logic, dynamic tabs, animated FAQ accordion, interactive beauty quiz & custom WhatsApp generator.
+ * Includes: Sticky Header, Mobile Navigation, Interactive Beauty Quiz & custom WhatsApp generator.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,32 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       3. SERVICES TABS SYSTEM
-       ========================================================================== */
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetTab = btn.getAttribute('data-tab');
-
-            // Deactivate all buttons & contents
-            tabButtons.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => {
-                c.classList.remove('active');
-            });
-
-            // Activate current
-            btn.classList.add('active');
-            const targetElement = document.getElementById(targetTab);
-            if (targetElement) {
-                targetElement.classList.add('active');
-            }
-        });
-    });
-
-    /* ==========================================================================
-       4. ANIMATED FAQ ACCORDION
+       3. ANIMATED FAQ ACCORDION
        ========================================================================== */
     const accordionHeaders = document.querySelectorAll('.accordion-title');
 
@@ -92,75 +67,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       5. INTERACTIVE BEAUTY QUIZ (WOW FEATURE)
+       4. INTERACTIVE BEAUTY QUIZ (WOW FEATURE)
        ========================================================================== */
     // Quiz Config & Data
     const quizData = {
         optionsStep2: {
-            facial: [
-                { value: "linhas", label: "Linhas & Rugas de Expressão", desc: "Testa, olhos (pés de galinha), entre as sobrancelhas." },
-                { value: "labios", label: "Contorno, Hidratação ou Volume Labial", desc: "Lábios finos, murchos ou sem contorno definido." },
-                { value: "flacidez", label: "Flacidez e Perda de Sustentação", desc: "Bochechas caídas, perda do contorno da mandíbula." },
-                { value: "olheiras", label: "Olheiras profundas ou escuras", desc: "Olhar cansado, sulco lacrimal fundo." },
-                { value: "manchas", label: "Manchas, Cravos e Textura Áspera", desc: "Poros dilatados, pele opaca ou acneica." }
+            rugas: [
+                { value: "testa", label: "Linhas Horizontais na Testa", desc: "Rugas aparentes ao levantar as sobrancelhas." },
+                { value: "olhos", label: "Pés de Galinha (Área dos Olhos)", desc: "Rugas finas que se formam ao sorrir." },
+                { value: "glabela", label: "Ruga Brava entre as Sobrancelhas", desc: "Vinco vertical que surge ao fazer cara de bravo." }
             ],
-            corporal: [
-                { value: "gordura", label: "Gordura Localizada Resistente", desc: "Abdomen, flancos, culote, papada." },
-                { value: "celulite", label: "Celulite & Aspecto Casca de Laranja", desc: "Ondulações nos glúteos e pernas." },
-                { value: "flacidez_corp", label: "Flacidez de Pele Corporal", desc: "Braço 'do tchau', interno de coxa, flacidez pós-parto." }
+            volume: [
+                { value: "labios", label: "Lábios Finos ou sem Contorno", desc: "Desejo de definição, volume ou hidratação." },
+                { value: "olheiras", label: "Olheiras Profundas (Olhar Cansado)", desc: "Sulco lacrimal fundo que causa aspecto de cansaço." },
+                { value: "sulcos", label: "Bigode Chinês ou Linhas de Marionete", desc: "Sulcos marcados ao redor da boca." }
             ],
-            capilar: [
-                { value: "queda", label: "Queda de Cabelo Acentuada", desc: "Fios caindo no banho, escova ou falhas visíveis." },
-                { value: "fios_fracos", label: "Fios Fracos, Finos ou Sem Crescimento", desc: "Cabelo ralo e enfraquecido da raiz às pontas." }
+            sustentacao: [
+                { value: "mandibula", label: "Perda do Contorno da Mandíbula", desc: "Falta de definição na linha da mandíbula e queixo." },
+                { value: "bochechas", label: "Bochechas Murchas ou Efeito Caído", desc: "Perda de volume na maçã do rosto (efeito buldogue)." },
+                { value: "papada", label: "Acúmulo de Gordura na Papada", desc: "Gordura submentoniana que prejudica o perfil da mandíbula." }
             ],
-            vasos: [
-                { value: "vasinhos", label: "Vasinhos Aparentes nas Pernas", desc: "Microvasos roxos ou avermelhados (incomodo estético)." }
+            pele: [
+                { value: "ressecamento", label: "Pele Desidratada e Sem Brilho", desc: "Falta de viço, textura áspera e ressecamento." },
+                { value: "envelhecimento", label: "Envelhecimento Precoce da Pele", desc: "Perda precoce de elasticidade e pequenas rugas finas." }
             ]
         },
         recommendations: {
-            facial_linhas: {
-                title: "Protocolo Botox Preventivo",
-                desc: "Aplicação preventiva de toxina botulínica de alta precisão para suavizar e prevenir rugas dinâmicas na testa, glabela e pés de galinha, garantindo uma expressão jovem, descansada e natural."
+            rugas_testa: {
+                title: "Protocolo Toxina Botulínica (Botox) - Testa",
+                desc: "Aplicação precisa de Botox na musculatura da testa para suavizar e prevenir marcas definitivas, garantindo uma expressão rejuvenescida, leve e natural."
             },
-            facial_labios: {
-                title: "Protocolo Preenchimento com Ácido Hialurônico",
-                desc: "Preenchimento de alta performance para harmonizar volume, contorno e hidratação dos lábios ou estruturar sulcos da face (olheiras, bigode chinês) com ácido hialurônico premium."
+            rugas_olhos: {
+                title: "Protocolo Toxina Botulínica (Botox) - Pés de Galinha",
+                desc: "Aplicação focada ao redor dos olhos para atenuar as rugas dinâmicas do sorriso, sem congelar a expressão ou alterar seu olhar."
             },
-            facial_flacidez: {
-                title: "Protocolo Fios de Sustentação PDO & Bioestimuladores",
-                desc: "Combinação potente de Fios de Sustentação PDO para tração mecânica e efeito lifting imediato, associada a Bioestimuladores de Colágeno para combater a flacidez em nível profundo e duradouro."
+            rugas_glabela: {
+                title: "Protocolo Toxina Botulínica (Botox) - Glabela",
+                desc: "Tratamento de precisão no músculo da glabela para relaxar a tensão que causa o semblante tenso ou bravo, promovendo leveza imediata ao rosto."
             },
-            facial_olheiras: {
-                title: "Protocolo Preenchimento com Ácido Hialurônico (Olheiras)",
-                desc: "Preenchimento de alta precisão do sulco lacrimal com ácido hialurônico para suavizar olheiras profundas, reestabelecer o volume e eliminar o aspecto de olhar cansado."
+            volume_labios: {
+                title: "Protocolo Lips Premium (Preenchimento Labial)",
+                desc: "Preenchimento estratégico com ácido hialurônico premium focado em desenhar o contorno, hidratar profundamente e devolver ou criar volume com naturalidade."
             },
-            facial_manchas: {
-                title: "Protocolo Pele de Porcelana & Limpeza Profunda",
-                desc: "Limpeza de pele profunda com extração cuidadosa e peeling químico leve associada ao microagulhamento de indução de colágeno, refinando poros e clareando gradualmente o tom cutâneo."
+            volume_olheiras: {
+                title: "Protocolo Preenchimento de Olheiras Profundas",
+                desc: "Correção do sulco lacrimal com ácido hialurônico de alta maleabilidade para atenuar a sombra da olheira e devolver o ar descansado ao olhar."
             },
-            corporal_gordura: {
-                title: "Protocolo LipoEnzimática & Drenagem Localizada",
-                desc: "Mesoterapia corporal com infusão localizada de enzimas lipolíticas inovadoras que degradam as células de gordura, facilitando sua eliminação natural. Ideal para culotes, abdomen e papada."
+            volume_sulcos: {
+                title: "Protocolo Preenchimento de Sulcos Faciais",
+                desc: "Suavização do bigode chinês e linhas de marionete com ácido hialurônico, restabelecendo o suporte das áreas afetadas sem aumentar o volume lateral."
             },
-            corporal_celulite: {
-                title: "Protocolo Celu-Smooth de Alta Performance",
-                desc: "Tratamento de Mesoterapia focado na melhora da microcirculação, desintoxicação e combate à fibrose local. Elimina o aspecto ondulado, melhorando o tônus e a uniformidade da derme nas pernas e glúteos."
+            sustentacao_mandibula: {
+                title: "Protocolo Contorno & Estrutura Mandibular",
+                desc: "Preenchimento de pontos de sustentação na mandíbula e mento com ácido hialurônico de alta densidade, promovendo definição de perfil e rejuvenescimento tridimensional."
             },
-            corporal_flacidez_corp: {
-                title: "Protocolo Firmeza & Tônus Corporal",
-                desc: "Mesoterapia corporal com um blend de ativos de alto padrão (DMAE, Silício Orgânico, Colágeno) para melhorar a firmeza, elasticidade e espessura da pele em áreas flácidas como braços, interno de coxas e abdomen."
+            sustentacao_bochechas: {
+                title: "Protocolo Lift & Colágeno (Bioestimuladores + Fios PDO)",
+                desc: "Combinação potente de fios de sustentação PDO para tracionamento mecânico imediato, associada a bioestimuladores de colágeno para sustentação e firmeza a longo prazo."
             },
-            capilar_queda: {
-                title: "Protocolo Bulbo Active Capilar (Antiqueda)",
-                desc: "Intradermoterapia capilar médica. Infusão profunda no couro cabeludo de fatores de crescimento, minerais e bloqueadores de queda capilar diretamente na raiz do folículo piloso, cessando a queda e ativando fios inativos."
+            sustentacao_papada: {
+                title: "Protocolo Lipo de Papada Enzimática",
+                desc: "Microaplicações de enzimas lipolíticas na gordura submentoniana para degradação e eliminação gradual das células adiposas, redefinindo o ângulo do pescoço."
             },
-            capilar_fios_fracos: {
-                title: "Protocolo Hair Fortify & Growth",
-                desc: "Mesoterapia capilar focada na nutrição profunda e fortalecimento da haste. Estimula a vasodilatação capilar e repõe minerais essenciais para engrossar cabelos ralos e acelerar de forma saudável o crescimento."
+            pele_ressecamento: {
+                title: "Protocolo Glow Skin (Skinbooster + Nutrição)",
+                desc: "Tratamento de hidratação injetável profunda (Skinbooster) que repõe ácido hialurônico e nutrientes diretamente nas camadas dérmicas, devolvendo viço, elasticidade e maciez instantâneos."
             },
-            vasos_vasinhos: {
-                title: "Tratamento PEIM (Secagem de Vasinhos Estéticos)",
-                desc: "Procedimento Estético Injetável para Microvasos. Utiliza microagulhas de alta precisão para injetar substância esclerosante de glicose hipertônica diretamente nos vasinhos aparentes, promovendo o seu fechamento e absorção gradual pelo organismo."
+            pele_envelhecimento: {
+                title: "Protocolo Skin Regeneration & Colágeno",
+                desc: "Associação de bioestimuladores de colágeno injetáveis e hidratação para reestruturar as fibras elásticas da pele, atenuando rugas finas e prevenindo o envelhecimento precoce."
             }
         }
     };
@@ -189,12 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Dynamic Title Based on selection
             const areaNames = {
-                facial: "Facial",
-                corporal: "Corporal",
-                capilar: "Capilar",
-                vasos: "de Microvasos"
+                rugas: "Rugas e Linhas",
+                volume: "Volume e Contorno",
+                sustentacao: "Definição e Sustentação",
+                pele: "Viço e Hidratação"
             };
-            step2Title.textContent = `Qual o principal incômodo na área ${areaNames[answers.area]}?`;
+            step2Title.textContent = `Qual o principal incômodo sobre ${areaNames[answers.area]}?`;
 
             const currentOptions = quizData.optionsStep2[answers.area];
             currentOptions.forEach((opt, idx) => {
@@ -242,12 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Compute recommendation key
         let recKey = `${answers.area}_${answers.complaint}`;
         
-        // Fallbacks if specific key is missing
-        if (answers.area === 'capilar') recKey = answers.complaint === 'queda' ? 'capilar_queda' : 'capilar_fios_fracos';
-        if (answers.area === 'vasos') recKey = 'vasos_vasinhos';
-        
         // Get recommendation details
-        const recommendation = quizData.recommendations[recKey] || quizData.recommendations['facial_linhas'];
+        const recommendation = quizData.recommendations[recKey] || quizData.recommendations['rugas_testa'];
         
         // Inject results into UI
         document.getElementById('userGreeting').innerHTML = `<strong>${answers.name}</strong>, com base nas suas queixas clínicas, montamos este direcionamento especial:`;
@@ -257,13 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // WhatsApp API text encoding
         const dddAndPhone = "5511999998888"; // Dra Fabbywla Whatsapp
         const introArea = {
-            facial: "Estética Facial",
-            corporal: "Estética Corporal",
-            capilar: "Estética Capilar",
-            vasos: "Microvasos (PEIM)"
+            rugas: "Suavizar Rugas e Linhas",
+            volume: "Volume e Contorno",
+            sustentacao: "Definição e Sustentação",
+            pele: "Melhorar o Viço e Hidratação"
         };
         
-        const textMessage = `Olá Dra. Fabbywla! Realizei a Pré-Consulta digital no seu site e gostaria de agendar uma avaliação clínica presencial. Meus dados:\n\n- *Nome*: ${answers.name}\n- *Área clínica*: ${introArea[answers.area]}\n- *Incômodo principal*: ${answers.complaintLabel}\n- *Indicação sugerida*: ${recommendation.title}`;
+        const textMessage = `Olá Dra. Fabbywla! Realizei a Pré-Consulta digital no seu site e gostaria de agendar uma avaliação clínica presencial. Meus dados:\n\n- *Nome*: ${answers.name}\n- *Objetivo principal*: ${introArea[answers.area]}\n- *Queixa específica*: ${answers.complaintLabel}\n- *Indicação sugerida*: ${recommendation.title}`;
         
         const encodedText = encodeURIComponent(textMessage);
         const whatsAppUrl = `https://wa.me/${dddAndPhone}?text=${encodedText}`;
@@ -285,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.restartQuiz = () => {
         // Clear forms
         document.getElementById('userName').value = '';
-        const defaultRadio = document.querySelector('input[name="area"][value="facial"]');
+        const defaultRadio = document.querySelector('input[name="area"][value="rugas"]');
         if (defaultRadio) defaultRadio.checked = true;
         
         // Go back to first step
